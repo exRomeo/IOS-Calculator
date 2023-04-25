@@ -14,7 +14,6 @@
 		EEA1482629F840F600B22D9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEA1482529F840F600B22D9B /* Assets.xcassets */; };
 		EEA1482929F840F600B22D9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEA1482729F840F600B22D9B /* LaunchScreen.storyboard */; };
 		EEA1482C29F840F600B22D9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA1482B29F840F600B22D9B /* main.m */; };
-		EEA1483429F86A4700B22D9B /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA1483329F86A4700B22D9B /* Calculator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +29,6 @@
 		EEA1482829F840F600B22D9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EEA1482A29F840F600B22D9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEA1482B29F840F600B22D9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EEA1483229F86A4700B22D9B /* Calculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Calculator.h; sourceTree = "<group>"; };
-		EEA1483329F86A4700B22D9B /* Calculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +72,6 @@
 				EEA1482729F840F600B22D9B /* LaunchScreen.storyboard */,
 				EEA1482A29F840F600B22D9B /* Info.plist */,
 				EEA1482B29F840F600B22D9B /* main.m */,
-				EEA1483229F86A4700B22D9B /* Calculator.h */,
-				EEA1483329F86A4700B22D9B /* Calculator.m */,
 			);
 			path = "I-Phone_Calculator";
 			sourceTree = "<group>";
@@ -155,7 +150,6 @@
 				EEA1481B29F840F400B22D9B /* AppDelegate.m in Sources */,
 				EEA1482C29F840F600B22D9B /* main.m in Sources */,
 				EEA1481E29F840F400B22D9B /* SceneDelegate.m in Sources */,
-				EEA1483429F86A4700B22D9B /* Calculator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

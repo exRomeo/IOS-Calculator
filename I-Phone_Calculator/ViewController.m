@@ -15,126 +15,78 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    _equasion = [NSString new];
-    _viewedNumber = @"";
-    _calculator = [Calculator new];
 }
 
 
 - (IBAction)equals:(UIButton *)sender {
-    _equasion = [_equasion stringByAppendingString:_textView.text];
-    _viewedNumber = [NSString stringWithFormat:@"%lf", [_calculator calculate:_equasion]];
-    _textView.text = _viewedNumber;
-    _equasion = @"";
+    
+    self.operand2 = [self.textView.text doubleValue];
+        switch (self.operator) {
+            
+            case 15:
+                self.result = self.operand1 + self.operand2;
+                break;
+            
+            case 14:
+                self.result = self.operand1 - self.operand2;
+                break;
+            
+            case 13:
+                self.result = self.operand1 * self.operand2;
+                break;
+            
+            case 12:
+                self.result = self.operand1 / self.operand2;
+                break;
+            
+            case 11:
+                if(_operand2 !=0){
+                    self.result = (int)self.operand1 % (int)self.operand2;
+                }
+                break;
+            
+            default:
+                break;
+        }
+    
+    if((_operator == 12 || _operator == 11) && _operand2 ==0){
+        _textView.text = @"Error.";
+    } else{
+        self.textView.text = [NSString stringWithFormat:@"%g", self.result];
+ }
 }
 
 - (IBAction)operation:(UIButton *)sender {
-    switch(sender.tag){
-            //%
-        case 11:
-        
-            _equasion = [_equasion stringByAppendingFormat:@"%@", _textView.text];
-//            _viewedNumber = [NSString stringWithFormat:@"%lf", [_calculator calculate:_equasion]];
-            _viewedNumber = @"";
-            _textView.text = _viewedNumber;
-            break;
-            
-            // /
-        case 12:
-                       
-            _equasion = [_equasion stringByAppendingFormat:@"%@\\", _textView.text];
-//            _viewedNumber = [NSString stringWithFormat:@"%lf", [_calculator calculate:_equasion]];
-            _viewedNumber = @"";
-            _textView.text = _viewedNumber;
-            break;
-            //*
-        case 13:
-            _equasion = [_equasion stringByAppendingFormat:@"%@*", _textView.text];
-//            _viewedNumber = [NSString stringWithFormat:@"%lf", [_calculator calculate:_equasion]];
-            _viewedNumber = @"";
-            _textView.text = _viewedNumber;
-            break;
-            //-
-        case 14:
-            _equasion = [_equasion stringByAppendingFormat:@"%@-", _textView.text];
-//            _viewedNumber = [NSString stringWithFormat:@"%lf", [_calculator calculate:_equasion]];
-            _viewedNumber = @"";
-            _textView.text = _viewedNumber;
-            break;
-            //+
-        case 15:
-            _equasion = [_viewedNumber stringByAppendingString:@"+"];
-//            _viewedNumber = [NSString stringWithFormat:@"%lf", [_calculator calculate:_equasion]];
-            _viewedNumber = @"";
-            _textView.text = _viewedNumber;
-            break;
-    }
     
+    if(sender.tag == -1){
+        
+        self.textView.text = [NSString stringWithFormat:@"%g", [self.textView.text doubleValue] * -1];
+        
+    } else {
+        
+    self.operand1 = [self.textView.text doubleValue];
+    self.operator = (int)sender.tag;
+    self.textView.text = @"0";
+        
+    }
 }
 
 - (IBAction)clear:(UIButton *)sender {
-    _viewedNumber = @"";
-    _equasion = @"";
-    _textView.text = _viewedNumber;
+    self.textView.text = @"0";
+        self.operand1 = 0;
+        self.operand2 = 0;
+        self.result = 0;
+        self.operator = 0;
 }
 
 - (IBAction)numPad:(UIButton *)sender {
-    switch(sender.tag){
-        case 0:
-            _viewedNumber = [_viewedNumber stringByAppendingString:@"0"];
-            _textView.text = _viewedNumber;
-            break;
-        case 1:
-            _viewedNumber = [_viewedNumber stringByAppendingString:@"1"];
-            _textView.text = _viewedNumber;
-            break;
-            
-        case 2:
-            _viewedNumber = [_viewedNumber stringByAppendingString:@"2"];
-            _textView.text = _viewedNumber;
-            break;
-        
-        case 3:
-            _viewedNumber = [_viewedNumber stringByAppendingString:@"3"];
-            _textView.text = _viewedNumber;
-            break;
-        
-        case 4:
-            _viewedNumber = [_viewedNumber stringByAppendingString:@"4"];
-            _textView.text = _viewedNumber;
-            break;
-        
-        case 5:
-            _viewedNumber = [_viewedNumber stringByAppendingString:@"5"];
-            _textView.text = _viewedNumber;
-            break;
-        
-        case 6:
-            _viewedNumber = [_viewedNumber stringByAppendingString:@"6"];
-            _textView.text = _viewedNumber;
-            break;
-        
-        case 7:
-            _viewedNumber = [_viewedNumber stringByAppendingString:@"7"];
-            _textView.text = _viewedNumber;
-            break;
-        
-        case 8:
-            _viewedNumber = [_viewedNumber stringByAppendingString:@"8"];
-            _textView.text = _viewedNumber;
-            break;
-        
-        case 9:
-            _viewedNumber = [_viewedNumber stringByAppendingString:@"9"];
-            _textView.text = _viewedNumber;
-            break;
-        
-        case 10:
-            _viewedNumber = [_viewedNumber stringByAppendingString:@"."];
-            _textView.text = _viewedNumber;
-            break;
-    }
-    NSLog(@"%@", _viewedNumber);
+    NSString *digit = sender.titleLabel.text;
+       NSString *text = self.textView.text;
+       if ([text isEqualToString:@"0"]) {
+           self.textView.text = digit;
+       } else {
+           self.textView.text = [text stringByAppendingString:digit];
+       }
+    
 }
 @end

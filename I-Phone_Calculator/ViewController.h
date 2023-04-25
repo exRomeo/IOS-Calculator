@@ -6,18 +6,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Calculator.h"
+
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *textView;
 
-@property NSString *equasion;
-@property NSString *viewedNumber;
-@property Calculator *calculator;
 - (IBAction)numPad:(UIButton *)sender;
 - (IBAction)clear:(UIButton *)sender;
 - (IBAction)operation:(UIButton *)sender;
 - (IBAction)equals:(UIButton *)sender;
 
+@property (assign, nonatomic) double operand1;
+@property (assign, nonatomic) double operand2;
+@property (assign, nonatomic) double result;
+@property (assign, nonatomic) int operator;
 
 @end
 
